@@ -14,12 +14,14 @@ function Sprite(imgSrc){
 		this.movUp = false;
 		this.movDown = false;
 		this.speed = 3;
-    //
+        this.flag = null;
+    //metodos..............................
     this.desenha = function(){
-        if (this.exibir) {
-            //Obs: para ajustar escala foi preciso dividir .lar && .alt pela escala nas dimensões de .lar & .alt na captura do sprite
-            //P.s: a medida de escala tem de ser setada fixa no momento do load do sprite para mudar esta medida durante o jogo necessida excuir objeto do array sprites e inseri-lo novamente com a nova escala EX: sprites[encontrar('player')] = new Personagem()//com a nova escala;
-            ctx.drawImage(this.img, this.srcX, this.srcY, this.lar*this.escala, this.alt*this.escala, this.posX, this.posY, this.lar, this.alt);// + this.lar * (this.esc + this.esc/2)
-        }		
+        //if (this.exibir) {
+            ctx.drawImage(this.img, this.srcX, this.srcY, this.lar, this.alt, this.posX, this.posY, this.lar, this.alt);
+        //}		
+    }
+    this.exe = function(){
+        
     }
 }
