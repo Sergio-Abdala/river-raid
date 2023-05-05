@@ -3,6 +3,8 @@ var ctx = cnv.getContext('2d');
 //GLOBAIS VARIAVEIS.
 var sprites = new Array();
 var game = new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png');
+var player = new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png');
+var pause = false;
 
 game.img.onload = function(){
     //esta medida so pode ser setada depois da imagem carregada............
@@ -10,25 +12,38 @@ game.img.onload = function(){
     //game.alt = (game.img.height);
     
     //avião posição inicial
-    game.flag = 'player';
-    game.srcX = 26;
-    game.srcY = 17;
-    game.lar = 14;
-    game.alt = 14;
-    game.posX = 115;
-    game.posY = 120;
+    player.flag = 'player';
+    player.srcX = 26;
+    player.srcY = 17;
+    player.lar = 14;
+    player.alt = 14;
+    player.posX = 115;
+    player.posY = 120;
+    sprites.push(player);
+    //gramado
+    //avião posição inicial
+    game.flag = 'gramado';
+    game.srcX = 84;
+    game.srcY = 15;
+    game.lar = 30;
+    game.alt = 23;
+    game.posX = 11;
+    game.posY = 12;
     sprites.push(game);
     
    loop();
+}
+function cenario(){
+    
 }
 
 function loop(){
     // limpar tela
 	ctx.clearRect(0,0,cnv.width,cnv.height);
 	for (let i = 0 ; i < sprites.length; i++) {//percorre array de sprites		
-		//if (!pause) {/////////////
+		if (!pause) {/////////////
 			sprites[i].exe();///
-		//}/////////////////////////
+		}/////////////////////////
 		sprites[i].desenha();/////					
 	}
 	requestAnimationFrame(loop, "canvas");
