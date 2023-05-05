@@ -12,12 +12,23 @@ function keydownHandler(e){
 			sprites[encontrar('player')].movLeft = false;
 			//sprites[encontrar('player')].movUp = false;
 			//sprites[encontrar('player')].movDown = false;
+            //posição direita do avião
+            sprites[encontrar('player')].srcX = 13;
+            sprites[encontrar('player')].srcY = 18;
+            sprites[encontrar('player')].lar = 10;
+            sprites[encontrar('player')].alt = 14;
 		break;
 		case LEFT:
 			sprites[encontrar('player')].movRight = false;
 			sprites[encontrar('player')].movLeft = true;
 			//sprites[encontrar('player')].movUp = false;
 			//sprites[encontrar('player')].movDown = false;
+            //posição esquerda do avião
+            sprites[encontrar('player')].srcX = 43;
+            sprites[encontrar('player')].srcY = 18;
+            sprites[encontrar('player')].lar = 10;
+            sprites[encontrar('player')].alt = 14;
+            
 		break;
 		case UP:
 			//sprites[1].movRight = false;
@@ -38,9 +49,18 @@ function keyupHandler(e){
 	switch(e.keyCode){
 		case RIGHT:
 			sprites[encontrar('player')].movRight = false;
+            //posição inicial avião
+            sprites[encontrar('player')].srcX = 26;
+            sprites[encontrar('player')].srcY = 17;
+            sprites[encontrar('player')].lar = 14;
+            sprites[encontrar('player')].alt = 14;    
 		break;
 		case LEFT:
 			sprites[encontrar('player')].movLeft = false;
+            sprites[encontrar('player')].srcX = 26;
+            sprites[encontrar('player')].srcY = 17;
+            sprites[encontrar('player')].lar = 14;
+            sprites[encontrar('player')].alt = 14;    
 		break;
 		case UP:
 			sprites[encontrar('player')].movUp = false;

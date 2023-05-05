@@ -9,7 +9,7 @@ game.img.onload = function(){
     //game.lar = (game.img.width);
     //game.alt = (game.img.height);
     
-    //avião
+    //avião posição inicial
     game.flag = 'player';
     game.srcX = 26;
     game.srcY = 17;
@@ -18,23 +18,7 @@ game.img.onload = function(){
     game.posX = 115;
     game.posY = 120;
     sprites.push(game);
-    /*/avião-direito
-    game.srcX = 13;
-    game.srcY = 18;
-    game.lar = 10;
-    game.alt = 14;
-    game.posX = 100;
-    game.posY = 120;
-    game.desenha();
-    //avião-esquerdo
-    game.srcX = 43;
-    game.srcY = 18;
-    game.lar = 10;
-    game.alt = 14;
-    game.posX = 133;
-    game.posY = 120;
-    game.desenha();
-    */
+    
    loop();
 }
 

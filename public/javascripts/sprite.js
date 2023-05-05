@@ -13,7 +13,7 @@ function Sprite(imgSrc){
 		this.movLeft = false;
 		this.movUp = false;
 		this.movDown = false;
-		this.speed = 3;
+		this.speed = 1;
         this.flag = null;
     //metodos..............................
     this.desenha = function(){
@@ -22,6 +22,11 @@ function Sprite(imgSrc){
         //}		
     }
     this.exe = function(){
-        
+        if(this.movRight){
+            this.posX += this.speed;
+        }
+        if(this.movLeft){
+            this.posX -= this.speed;
+        }
     }
 }
