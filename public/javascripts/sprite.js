@@ -28,5 +28,12 @@ function Sprite(imgSrc){
         if(this.movLeft){
             this.posX -= this.speed;
         }
+        if (this.movUp) {
+            this.speed = 2;
+        }else if(this.movDown){
+            this.speed = .4;
+        }else{
+            this.speed = 1;
+        }
     }
 }
