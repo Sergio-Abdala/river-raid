@@ -69,7 +69,7 @@ function Sprite(imgSrc){
             sprites[encontrar('player')].lar = 15;
             sprites[encontrar('player')].alt = 12;
             //
-            pause = true;
+            gameOver = true;
         }
     }
 }
