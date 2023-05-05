@@ -25,9 +25,30 @@ function Sprite(imgSrc){
         //movimento 
         if(this.movRight){
             this.posX += this.speed;
-        }
-        if(this.movLeft){
+            if (this.flag == 'player') {
+                //posição direita do avião
+                this.srcX = 13;
+                this.srcY = 18;
+                this.lar = 10;
+                this.alt = 14;
+            }
+        }else if(this.movLeft){
             this.posX -= this.speed;
+            if (this.flag == 'player') {
+                //posição esquerda do avião
+                this.srcX = 43;
+                this.srcY = 18;
+                this.lar = 10;
+                this.alt = 14;
+            }
+        }else{
+            if (this.flag == 'player') {
+                //posição inicial avião
+                this.srcX = 26;
+                this.srcY = 17;
+                this.lar = 14;
+                this.alt = 14;
+            }
         }
         if (this.movUp) {
             this.speed = 2;
@@ -36,9 +57,18 @@ function Sprite(imgSrc){
         }else{
             this.speed = 1;
         }
+        //movimento vertical
+        if (this.flag != 'player') {//ñ é o player todos os demais elementos...
+            this.posY += sprites[encontrar('player')].speed;
+        }
         //colisão com player
         if (this.flag != 'player' && colide(this, sprites[encontrar('player')])) {
             //player explode...
+            sprites[encontrar('player')].srcX = 7;
+            sprites[encontrar('player')].srcY = 77;
+            sprites[encontrar('player')].lar = 15;
+            sprites[encontrar('player')].alt = 12;
+            //
             pause = true;
         }
     }
