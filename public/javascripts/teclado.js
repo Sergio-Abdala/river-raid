@@ -95,7 +95,12 @@ function keyupHandler(e){
 			console.log('letra m <==> teclado...');				
 		break;
 		case 80: // p letra...
-			console.log('letra p <==> teclado...');				
+			console.log('letra p <==> teclado...');
+			if (pause) {
+				pause = false;
+			}else{
+				pause = true;
+			}
 		break;
 	}
 }

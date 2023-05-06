@@ -1,20 +1,20 @@
-function Sprite(imgSrc){
+function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 	//atributos.............................
 		this.img = new Image();
 		this.img.src = imgSrc;
-        this.srcX = 0;
-		this.srcY = 0;
-        this.lar = 0;
-		this.alt = 0;
+        this.srcX = srcX;
+		this.srcY = srcY;
+        this.lar = lar;
+		this.alt = alt;
 		this.escala = 1;
-        this.posX = 0;
-		this.posY = 0;
+        this.posX = posX;
+		this.posY = posY;
         this.movRight = false;
 		this.movLeft = false;
 		this.movUp = false;
 		this.movDown = false;
 		this.speed = 1;
-        this.flag = null;
+        this.flag = flag;
     //metodos..............................
     this.desenha = function(){
         //if (this.exibir) {
@@ -64,7 +64,7 @@ function Sprite(imgSrc){
         //colisão com player
         if (this.flag != 'player' && colide(this, sprites[encontrar('player')])) {
             //player explode...
-            sprites[encontrar('player')].srcX = 7;
+            sprites[encontrar('player')].srcX = 8;
             sprites[encontrar('player')].srcY = 77;
             sprites[encontrar('player')].lar = 15;
             sprites[encontrar('player')].alt = 12;
