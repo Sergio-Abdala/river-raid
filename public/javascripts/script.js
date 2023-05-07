@@ -15,9 +15,9 @@ sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png',
 sprites[encontrar('player')].img.onload = function(){
     loop();
 }
-
+//funcões de imprimir ou desenhar******************************************************************/
 function gramado(id){
-    for (let i = 0; i < id; i++) {
+    for (let i = 0; i < id; i++) {        
         //esquera
         sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 30, 23, i*30, -23));
         //direita
@@ -73,7 +73,17 @@ function maisRio(id){
 function menosRio(id){
     maisGrama(id);
 }
-
+function construcao(lin, lad){
+    //esquera
+    if (lad == 'e') {
+        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 117, 15, 30, 23, lin*30, -23));
+    }    
+    //direita
+    if (lad == 'd') {
+        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 117, 15, 30, 23, 270-lin*30, -23));
+    }    
+}
+//************************************************************************************************ */
 function loop(){
     let imprimir = true;
     // limpar tela
@@ -116,7 +126,7 @@ function fase01(){
             gramado(3);
             break;
         case 6:
-            gramado(3);
+            gramado(3);construcao(1, 'd');
             break;
         /*case 7:
             gramado(3);
