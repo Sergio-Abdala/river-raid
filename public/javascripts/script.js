@@ -54,17 +54,17 @@ function menosGrama(id){//aumenta o rio diminuindo laterais de gramado de 4 para
 }
 function maisGrama(id){//diminui o rio aumentando laterais de gramado de 4 para 3 em cada linha lateral
     //diagonal fecha esquerda 4/3
-    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 10, 15, 30*(id-1), -15));
-    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 15, 13, 30*(id-1), -17));
-    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 20, 11, 30*(id-1), -19));
-    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 25, 9, 30*(id-1), -21));
-    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 30, 7, 30*(id-1), -23));
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 5, 23, 30*(id-1), -23));
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 10, 20, 30*(id-1), -23));
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 15, 15, 30*(id-1), -23));
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 20, 10, 30*(id-1), -23));
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15,25, 5, 30*(id-1), -23));
     //diagonal abre direita 4/3  posX - lar
-    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 10, 15, cnv.width-30*id+20, -15));
-    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 15, 13, cnv.width-30*id+15, -17));
-    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 20, 11, cnv.width-30*id+10, -19));
-    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 25, 9, cnv.width-30*id+5, -21));
-    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 30, 7, cnv.width-30*id, -23));
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 10, 23, cnv.width-30*id+25, -23));
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 15, 20, cnv.width-30*id+20, -23));
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 20, 15, cnv.width-30*id+15, -23));
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 25, 10, cnv.width-30*id+10, -23));
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 30, 5, cnv.width-30*id+5, -23));
 }
 //auxiliar rio copia do mais/menos-Grama
 function maisRio(id){
@@ -114,7 +114,7 @@ function fase01(){
             estrada(4);
             break;
         case 2:
-            gramado(4);
+            gramado(4);construcao(1, 'e');
             break;
         case 3:
             menosGrama(4);gramado(3);
@@ -126,10 +126,10 @@ function fase01(){
             gramado(3);
             break;
         case 6:
-            gramado(3);construcao(1, 'd');
+            gramado(3)//;maisGrama(4);
             break;
         /*case 7:
-            gramado(3);
+            //
             break;*/
 
         default:
