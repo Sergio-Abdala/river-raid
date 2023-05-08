@@ -116,7 +116,8 @@ function organizarSprites () {
 				sprites[i+1] = troca;
 				troca = true;
 			}
-            if (sprites[i].flag == 'gas' && i > 0) {
+            //troca gas e player de posição no array sprites...
+            if (sprites[i].flag == 'gas' && i > parseInt(encontrar('player'))) {
                 memo = encontrar('player');
                 troca = sprites[i];
 				sprites[i] = sprites[memo];
