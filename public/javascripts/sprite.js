@@ -58,7 +58,7 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
             this.speed = 1;
         }
         //movimento vertical
-        if (this.flag != 'player' && this.flag != 'painel' && this.flag != 'ponteiro') {//ñ é o player todos os demais elementos...
+        if (this.flag != 'player' && this.flag != 'painel' && this.flag != 'ponteiro' && this.flag != 'tiro') {//ñ é o player todos os demais elementos...
             this.posY += sprites[encontrar('player')].speed;			
         }
         //colisão com player
