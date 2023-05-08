@@ -51,15 +51,15 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
             }
         }
         if (this.movUp) {
-            this.speed = 2;
+            this.speed = 1.5;
         }else if(this.movDown){
-            this.speed = .4;
+            this.speed = .5;
         }else{
             this.speed = 1;
         }
         //movimento vertical
         if (this.flag != 'player' && this.flag != 'painel' && this.flag != 'ponteiro') {//ñ é o player todos os demais elementos...
-            this.posY += sprites[encontrar('player')].speed;
+            this.posY += sprites[encontrar('player')].speed;			
         }
         //colisão com player
         if (this.flag != 'player' && colide(this, sprites[encontrar('player')])) {
@@ -73,9 +73,16 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
         }
 		//ponteiro
 		if (this.flag == 'ponteiro') {
-			this.posX-=.1;
-			if (this.posX < 113) {
-				//player explode...
+			if (sprites[encontrar('player')].speed < 1) {
+				this.posX-=.05;
+			}
+			if (sprites[encontrar('player')].speed > 1) {
+				this.posX-=.15;
+			}
+			if (sprites[encontrar('player')].speed == 1) {
+				this.posX-=.1;
+			}			
+			if (this.posX < 113) {//player explode...
 				sprites[encontrar('player')].srcX = 8;
 				sprites[encontrar('player')].srcY = 77;
 				sprites[encontrar('player')].lar = 15;

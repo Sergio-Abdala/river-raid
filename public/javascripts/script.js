@@ -17,7 +17,7 @@ sprites[encontrar('player')].img.onload = function(){
 }
 //funcões de renderizar ou desenhar******************************************************************/
 function gramado(id){
-    for (let i = 0; i < id; i++) {        
+    for (let i = 0; i < id; i++) {
         //esquera
         sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 30, 23, i*30, -23));
         //direita
@@ -127,7 +127,7 @@ function loop(){
 		}////////////////////////////////////
 		sprites[i].desenha();///////////////
         /*verificar se existe algo acima da tela de jogo*/
-        if (sprites[i].posY < 0) {
+        if (sprites[i].posY < -0.5) {
             imprimir = false;
         }
 	}
