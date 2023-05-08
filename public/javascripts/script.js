@@ -16,6 +16,7 @@ sprites[encontrar('player')].img.onload = function(){
     loop();
 }
 //funcões de renderizar ou desenhar******************************************************************/
+//elementos do cenario
 function gramado(id){
     for (let i = 0; i < id; i++) {
         //esquera
@@ -23,19 +24,6 @@ function gramado(id){
         //direita
         sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 30, 23, 270-i*30, -23));
     }
-}
-function estrada(id){
-    for (let i = 0; i < id; i++) {
-        //estrada esquerda
-        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'estrada', 67, 15, 15, 23, i*30, -23));
-        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'estrada', 67, 15, 15, 23, 15+i*30, -23));
-        //estrada direita
-        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'estrada', 67, 15, 15, 23, 285-i*30, -23));
-        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'estrada', 67, 15, 15, 23, 285-15-i*30, -23));
-    }
-}
-function ponte(){
-    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'ponte', 172, 15, 60, 23, 120, -24));
 }
 function menosGrama(id){
     //diagonal abre esquerda 4/3
@@ -83,18 +71,32 @@ function construcao(lin, lad){
         sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 117, 15, 30, 23, 270-lin*30, -23));
     }    
 }
+function estrada(id){
+    for (let i = 0; i < id; i++) {
+        //estrada esquerda
+        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'estrada', 67, 15, 15, 23, i*30, -23));
+        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'estrada', 67, 15, 15, 23, 15+i*30, -23));
+        //estrada direita
+        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'estrada', 67, 15, 15, 23, 285-i*30, -23));
+        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'estrada', 67, 15, 15, 23, 285-15-i*30, -23));
+    }
+}
 function painel(){
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'painel', 74, 66, 78, 15, 111, 134));
 }
 function ponteiro(nivel){//vazio == 113 posX cheio = 181   tamanho = 68
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'ponteiro', 153, 69, 5, 10, 181, 137));
 }
+//elementos do jogo
+function tiro(){
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'tiro', 5, 20, 5, 10, sprites[encontrar('player')].posX, sprites[encontrar('player')].posY));
+}
 function gas(x) {
     //trabalhando aqui implementar
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gas', 152, 14, 15, 25, x, -23));
 }
-function tiro(){
-    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'tiro', 5, 20, 5, 10, sprites[encontrar('player')].posX, sprites[encontrar('player')].posY));
+function ponte(){
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'ponte', 172, 15, 60, 23, 120, -24));
 }
 function organizarSprites () {
 	//organizar array / pilha de sprites... coloca ponteiro de ultimo e painel de penultimo
