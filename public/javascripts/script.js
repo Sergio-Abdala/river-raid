@@ -10,7 +10,7 @@ cnv.width = 300;
 cnv.heigth = 150;
 */
 //avião player
-sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'player', 26, 17, 14, 14, 143, 115));
+sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid-transparente.png', 'player', 26, 17, 14, 14, 143, 115));
 painel();ponteiro();
 sprites[encontrar('player')].img.onload = function(){
     loop();
@@ -111,11 +111,13 @@ function organizarSprites () {
 				sprites[i+1] = troca;
 				troca = true;
 			}
-            /*if (sprites[i].flag == 'gas') {
+            if (sprites[i].flag == 'gas' && i > 0) {
+                memo = encontrar('player');
                 troca = sprites[i];
-				sprites[i] = sprites[0];
-				sprites[0] = troca;
-            }*/
+				sprites[i] = sprites[memo];
+				sprites[memo] = troca;
+                troca = false;
+            }
 		}
         
 	}while(troca);
@@ -136,7 +138,7 @@ function loop(){
             imprimir = false;
         }
         //eliminar do array
-        if (sprites[i].posY > 150) {
+        if (sprites[i].posY > 180) {
             sprites.splice(i, 1);
             console.log('total sprites = '+sprites.length);
         }
