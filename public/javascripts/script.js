@@ -93,6 +93,9 @@ function gas(x) {
     //trabalhando aqui implementar
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gas', 152, 14, 15, 25, x, -23));
 }
+function tiro(){
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'tiro', 5, 20, 5, 10, sprites[encontrar('player')].posX, sprites[encontrar('player')].posY));
+}
 function organizarSprites () {
 	//organizar array / pilha de sprites... coloca ponteiro de ultimo e painel de penultimo
 	let troca = false;
