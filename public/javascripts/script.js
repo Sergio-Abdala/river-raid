@@ -87,9 +87,9 @@ function painel(){
 function ponteiro(nivel){//vazio == 113 posX cheio = 181   tamanho = 68
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'ponteiro', 153, 69, 5, 10, 181, 137));
 }
-//elementos do jogo
+//objetos / elementos do jogo...
 function tiro(){
-    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'tiro', 6, 21, 2, 8, sprites[encontrar('player')].posX, sprites[encontrar('player')].posY));
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'tiro', 6, 21, 2, 8, sprites[encontrar('player')].meiox()-1, sprites[encontrar('player')].posY));
 }
 function gas(x) {
     //trabalhando aqui implementar
