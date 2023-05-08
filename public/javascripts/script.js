@@ -110,7 +110,6 @@ function organizarSprites () {
 				sprites[i] = sprites[i+1];
 				sprites[i+1] = troca;
 				troca = true;
-                console.log(i +' para '+ (i+parseInt(1)));
 			}
             /*if (sprites[i].flag == 'gas') {
                 troca = sprites[i];
@@ -135,6 +134,11 @@ function loop(){
         /*verificar se existe algo acima da tela de jogo*/
         if (sprites[i].posY < -0.5) {
             imprimir = false;
+        }
+        //eliminar do array
+        if (sprites[i].posY > 150) {
+            sprites.splice(i, 1);
+            console.log('total sprites = '+sprites.length);
         }
 	}
     if (imprimir) {
