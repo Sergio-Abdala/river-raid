@@ -158,7 +158,7 @@ function fase01(){
             estrada(4);
             break;
         case 2:
-            gramado(4);construcao(1, 'e');
+            gramado(4);construcao(1, 'e');organizarSprites();
             break;
         case 3:
             menosGrama(4);gramado(3);
@@ -173,11 +173,11 @@ function fase01(){
             gramado(3)//;maisGrama(4);
             break;
         case 7:
-            linha=0;
+            gramado(3);maisGrama(4);
             break;
 
         default:
-            pause = true;
+            linha = 0
             break;
     }
     linha++;
