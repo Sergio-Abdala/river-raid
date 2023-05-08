@@ -61,10 +61,9 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
         if (this.flag != 'player' && this.flag != 'painel' && this.flag != 'ponteiro' && this.flag != 'tiro') {//ñ é o player todos os demais elementos...
             this.posY += sprites[encontrar('player')].speed;			
         }
-		let existeTiro = false;
+		
 		if (this.flag == 'tiro'){
 			this.posY -= 3;
-			existeTiro = true;
 		}
         //colisão com player
         if (this.flag != 'player' && this.flag != 'tiro' && colide(this, sprites[encontrar('player')])) {
@@ -86,7 +85,7 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 		if (existeTiro){
 			if (this.flag != 'tiro' && this.flag != 'player' && colide(this, sprites[encontrar('tiro')])) {
 				//identificar oq colidiu com tiro
-				
+				console.log('tiro atingiu '+ this.flag);
 			}
 		}		
 		//ponteiro

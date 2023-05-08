@@ -4,7 +4,12 @@ var ctx = cnv.getContext('2d');
 var sprites = new Array();
 var pause = false;
 var gameOver = false;
-var linha = 0;
+var existeTiro = 0;//??????????????????????????
+var contador = {
+    linha: 0,
+    tiro: 0
+}
+//var linha = 0;
 /*ANOTAÇÕES...
 cnv.width = 300;
 cnv.heigth = 150;
@@ -38,7 +43,6 @@ function menosGrama(id){
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 15, 15, cnv.width-30*id+15, -15));
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 20, 10, cnv.width-30*id+10, -10));
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 25, 5, cnv.width-30*id+5, -5));
-    console.log(cnv.width-30*id+20);
 }
 function maisGrama(id){
     //diagonal fecha esquerda 4/3
@@ -90,6 +94,7 @@ function ponteiro(nivel){//vazio == 113 posX cheio = 181   tamanho = 68
 //objetos / elementos do jogo...
 function tiro(){
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'tiro', 6, 21, 2, 8, sprites[encontrar('player')].meiox()-1, sprites[encontrar('player')].posY));
+    existeTiro++;
 }
 function gas(x) {
     //trabalhando aqui implementar
@@ -146,18 +151,22 @@ function loop(){
         }
         //eliminar do array
         if (sprites[i].posY > 180 || sprites[i].posY < -30) {
+            /*if (sprites[i].flag == 'tiro') {
+                contador.tiro--;
+                console.log('tiro eliminado do array');
+            }*/
             sprites.splice(i, 1);
-            console.log('total sprites = '+sprites.length);
+            //console.log('total sprites = '+sprites.length);
         }
 	}
     if (imprimir) {
         //pause = true;
-        //fase01();
+        fase01();
     }
 	requestAnimationFrame(loop, "canvas");
 }
 function fase01(){
-    switch (linha) {
+    switch (contador.linha) {
         case 0:
             gramado(4);
             break;
@@ -184,10 +193,10 @@ function fase01(){
             break;
 
         default:
-            linha = 0
+            contador.linha = 0
             break;
     }
-    linha++;
+    contador.linha++;
 }
 function encontrar(flag){//descobre index do objeto que corresponda a flag...
 	//descobre qual obj do array tem a flag correspondente, avaliar para flag's identicas???
@@ -196,4 +205,5 @@ function encontrar(flag){//descobre index do objeto que corresponda a flag...
 			return i;
 		}
 	}
+    return false;
 }
