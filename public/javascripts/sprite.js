@@ -58,7 +58,7 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
             this.speed = 1;
         }
         //movimento vertical
-        if (this.flag != 'player') {//ñ é o player todos os demais elementos...
+        if (this.flag != 'player' && this.flag != 'painel' && this.flag != 'ponteiro') {//ñ é o player todos os demais elementos...
             this.posY += sprites[encontrar('player')].speed;
         }
         //colisão com player
@@ -71,6 +71,19 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
             //
             gameOver = true;
         }
+		//ponteiro
+		if (this.flag == 'ponteiro') {
+			this.posX-=.1;
+			if (this.posX < 113) {
+				//player explode...
+				sprites[encontrar('player')].srcX = 8;
+				sprites[encontrar('player')].srcY = 77;
+				sprites[encontrar('player')].lar = 15;
+				sprites[encontrar('player')].alt = 12;
+				//
+				gameOver = true;
+			}
+		}
     }
 }
 Sprite.prototype.metax = function(){
