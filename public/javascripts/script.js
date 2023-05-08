@@ -4,7 +4,6 @@ var ctx = cnv.getContext('2d');
 var sprites = new Array();
 var pause = false;
 var gameOver = false;
-var existeTiro = 0;//??????????????????????????
 var contador = {
     linha: 0,
     tiro: 0
@@ -94,7 +93,7 @@ function ponteiro(nivel){//vazio == 113 posX cheio = 181   tamanho = 68
 //objetos / elementos do jogo...
 function tiro(){
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'tiro', 6, 21, 2, 8, sprites[encontrar('player')].meiox()-1, sprites[encontrar('player')].posY));
-    existeTiro++;
+    
 }
 function gas(x) {
     //trabalhando aqui implementar

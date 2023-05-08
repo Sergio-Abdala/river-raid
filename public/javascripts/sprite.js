@@ -66,7 +66,7 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 			this.posY -= 3;
 		}
         //colisão com player
-        if (this.flag != 'player' && this.flag != 'tiro' && colide(this, sprites[encontrar('player')])) {
+        if (this.flag != 'player' && this.flag != 'tiro' && this.flag != 'explosao' && colide(this, sprites[encontrar('player')])) {
 			if (this.flag == 'gas') {//enche tanque
 				organizarSprites();
 				if (sprites[encontrar('ponteiro')].posX < 181) {//enchendo tanque
@@ -82,10 +82,25 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 			}
         }
 		//colisão com tiro
-		if (existeTiro){
+		if (sprites[encontrar('tiro')]){
 			if (this.flag != 'tiro' && this.flag != 'player' && colide(this, sprites[encontrar('tiro')])) {
 				//identificar oq colidiu com tiro
 				console.log('tiro atingiu '+ this.flag);
+				switch (this.flag) {
+					case 'gas':
+							//4,110
+							this.srcX = 4;
+							this.srcY = 110;
+							this.flag = 'explosao';
+							let indexTiro = encontrar('tiro');
+							//remover tiro
+							console.log('remover '+ sprites[indexTiro].flag);
+							sprites.splice(indexTiro, 1);
+						break;
+				
+					default:
+						break;
+				}
 			}
 		}		
 		//ponteiro
