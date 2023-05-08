@@ -63,13 +63,19 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
         }
         //colisão com player
         if (this.flag != 'player' && colide(this, sprites[encontrar('player')])) {
-            //player explode...
-            sprites[encontrar('player')].srcX = 8;
-            sprites[encontrar('player')].srcY = 77;
-            sprites[encontrar('player')].lar = 15;
-            sprites[encontrar('player')].alt = 12;
-            //
-            gameOver = true;
+			if (this.flag == 'gas') {
+				organizarSprites();
+				if (sprites[encontrar('ponteiro')].posX < 181) {
+					sprites[encontrar('ponteiro')].posX+=.5;
+				}				
+			}else{
+				//player explode...
+				sprites[encontrar('player')].srcX = 8;
+				sprites[encontrar('player')].srcY = 77;
+				sprites[encontrar('player')].lar = 15;
+				sprites[encontrar('player')].alt = 12;
+				gameOver = true;
+			}
         }
 		//ponteiro
 		if (this.flag == 'ponteiro') {

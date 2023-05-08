@@ -89,8 +89,9 @@ function painel(){
 function ponteiro(nivel){//vazio == 113 posX cheio = 181   tamanho = 68
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'ponteiro', 153, 69, 5, 10, 181, 137));
 }
-function gas(posX, posY) {
+function gas(x) {
     //trabalhando aqui implementar
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gas', 152, 14, 15, 25, x, -23));
 }
 function organizarSprites () {
 	//organizar array / pilha de sprites... coloca ponteiro de ultimo e painel de penultimo
@@ -109,8 +110,13 @@ function organizarSprites () {
 				sprites[i] = sprites[i+1];
 				sprites[i+1] = troca;
 				troca = true;
-                console.log(i +' para '+ (i+parseInt(1)));									
+                console.log(i +' para '+ (i+parseInt(1)));
 			}
+            /*if (sprites[i].flag == 'gas') {
+                troca = sprites[i];
+				sprites[i] = sprites[0];
+				sprites[0] = troca;
+            }*/
 		}
         
 	}while(troca);
@@ -152,7 +158,7 @@ function fase01(){
             menosGrama(4);gramado(3);
             break;
         case 4:
-            gramado(3);
+            gramado(3);gas(150);
             break;
         case 5:
             gramado(3);organizarSprites();
