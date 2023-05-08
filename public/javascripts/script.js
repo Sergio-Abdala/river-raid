@@ -89,11 +89,11 @@ function ponteiro(nivel){//vazio == 113 posX cheio = 181   tamanho = 68
 }
 //elementos do jogo
 function tiro(){
-    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'tiro', 5, 20, 5, 10, sprites[encontrar('player')].posX, sprites[encontrar('player')].posY));
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'tiro', 6, 21, 2, 8, sprites[encontrar('player')].posX, sprites[encontrar('player')].posY));
 }
 function gas(x) {
     //trabalhando aqui implementar
-    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gas', 152, 14, 15, 25, x, -23));
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gas', 152, 14, 16, 26, x, -23));
 }
 function ponte(){
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'ponte', 172, 15, 60, 23, 120, -24));
@@ -143,7 +143,7 @@ function loop(){
             imprimir = false;
         }
         //eliminar do array
-        if (sprites[i].posY > 180) {
+        if (sprites[i].posY > 180 || sprites[i].posY < -30) {
             sprites.splice(i, 1);
             console.log('total sprites = '+sprites.length);
         }

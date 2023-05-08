@@ -49,7 +49,7 @@ function keyupHandler(e){
 			sprites[encontrar('player')].movDown = false;
 		break;
 		case 32: //barra de espaço
-			
+			tiro();
 		break;
 		case 33://pag up
 			
