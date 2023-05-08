@@ -6,7 +6,8 @@ var pause = false;
 var gameOver = false;
 var contador = {
     linha: 0,
-    tiro: 0
+    tiro: 0,
+    atingiu: Array()
 }
 //var linha = 0;
 /*ANOTAÇÕES...
@@ -90,11 +91,11 @@ function painel(){
 function ponteiro(nivel){//vazio == 113 posX cheio = 181   tamanho = 68
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'ponteiro', 153, 69, 5, 10, 181, 137));
 }
-//objetos / elementos do jogo...
 function tiro(){
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'tiro', 6, 21, 2, 8, sprites[encontrar('player')].meiox()-1, sprites[encontrar('player')].posY));
-    
+    contador.tiro++;    
 }
+//objetos npc / elementos do jogo...
 function gas(x) {
     //trabalhando aqui implementar
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gas', 152, 14, 16, 26, x, -23));
@@ -102,6 +103,7 @@ function gas(x) {
 function ponte(){
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'ponte', 172, 15, 60, 23, 120, -24));
 }
+
 function organizarSprites () {
 	//organizar array / pilha de sprites... coloca ponteiro de ultimo e painel de penultimo
 	let troca = false;
@@ -149,13 +151,9 @@ function loop(){
             imprimir = false;
         }
         //eliminar do array
-        if (sprites[i].posY > 180 || sprites[i].posY < -30) {
-            /*if (sprites[i].flag == 'tiro') {
-                contador.tiro--;
-                console.log('tiro eliminado do array');
-            }*/
+        if (sprites[i].posY > 180 || sprites[i].posY < -30 || sprites[i].flag == 'remover') {
+            
             sprites.splice(i, 1);
-            //console.log('total sprites = '+sprites.length);
         }
 	}
     if (imprimir) {
@@ -163,6 +161,15 @@ function loop(){
         fase01();
     }
 	requestAnimationFrame(loop, "canvas");
+}
+function encontrar(flag){//descobre index do objeto que corresponda a flag...
+	//descobre qual obj do array tem a flag correspondente, avaliar para flag's identicas???
+	for (let i = sprites.length - 1; i >= 0; i--) {
+		if (sprites[i].flag == flag) {
+			return i;
+		}
+	}
+    return false;
 }
 function fase01(){
     switch (contador.linha) {
@@ -192,17 +199,9 @@ function fase01(){
             break;
 
         default:
+            gramado(4);ponte();
             contador.linha = 0
             break;
     }
     contador.linha++;
-}
-function encontrar(flag){//descobre index do objeto que corresponda a flag...
-	//descobre qual obj do array tem a flag correspondente, avaliar para flag's identicas???
-	for (let i = sprites.length - 1; i >= 0; i--) {
-		if (sprites[i].flag == flag) {
-			return i;
-		}
-	}
-    return false;
 }
