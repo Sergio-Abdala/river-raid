@@ -103,6 +103,10 @@ function gas(x) {
 function ponte(){
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'ponte', 172, 15, 60, 23, 120, -24));
 }
+function navio(x){
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'navio', 3, 57, 33, 9, x, -24));
+    console.log('add navio');
+}
 
 function organizarSprites () {
 	//organizar array / pilha de sprites... coloca ponteiro de ultimo e painel de penultimo
@@ -199,7 +203,7 @@ function fase01(){
             break;
 
         default:
-            gramado(4);ponte();
+            gramado(4);navio(cnv.width/2 - 20);
             contador.linha = 0
             break;
     }

@@ -101,11 +101,17 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 							this.flag = 'explosao';							
 						break;
 					case 'ponte':
-							//4,110
 							this.srcX = 25;
 							this.srcY = 110;
 							this.lar = 35;
 							this.posX += 13;
+							this.flag = 'explosao';							
+						break;
+					case 'navio':
+							this.srcX = 25;
+							this.srcY = 110;
+							this.lar = 35;
+							this.posX += 1;
 							this.flag = 'explosao';							
 						break;
 					default:
