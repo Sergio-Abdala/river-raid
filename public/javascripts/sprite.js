@@ -65,9 +65,11 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
         if (this.flag != 'player' && colide(this, sprites[encontrar('player')])) {
 			if (this.flag == 'gas') {
 				organizarSprites();
-				if (sprites[encontrar('ponteiro')].posX < 181) {
+				if (sprites[encontrar('ponteiro')].posX < 181) {//enchendo tanque
 					sprites[encontrar('ponteiro')].posX+=.5;
 				}				
+			}else if (this.flag == 'tiro') {
+				//ñ faz nada
 			}else{
 				//player explode...
 				sprites[encontrar('player')].srcX = 8;
