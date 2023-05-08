@@ -136,10 +136,11 @@ function loop(){
 	for (let i = 0 ; i < sprites.length; i++) {//percorre array de sprites
 
 		if (!pause && !gameOver) {/////////////
-			sprites[i].exe();/////////////////
+			sprites[i].exe();/////////////////  movimento do jogo...
 		}////////////////////////////////////
-		sprites[i].desenha();///////////////
-        /*verificar se existe algo acima da tela de jogo*/
+		sprites[i].desenha();/////////////// renderiza na tela...
+
+        /*verificar se existe algo acima da tela de jogo para saber quando renderizar nova linha*/
         if (sprites[i].posY < -0.5) {
             imprimir = false;
         }
@@ -151,7 +152,7 @@ function loop(){
 	}
     if (imprimir) {
         //pause = true;
-        fase01();
+        //fase01();
     }
 	requestAnimationFrame(loop, "canvas");
 }
