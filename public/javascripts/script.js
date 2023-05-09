@@ -1,6 +1,5 @@
 var cnv = document.querySelector('canvas');
 var ctx = cnv.getContext('2d');
-//ctx.scale(-1, 1);
 //GLOBAIS VARIAVEIS.
 var sprites = new Array();
 var pause = false;
@@ -105,43 +104,39 @@ function ponte(){
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'ponte', 172, 15, 60, 23, 120, -24));
 }
 function navio(x){
+    //<---3  --->36 soma a largura no srcX para virar de lado...
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'navio', 3, 57, 33, 9, x, -14));
     //console.log('add navio');
 }
 
 function organizarSprites () {
 	//organizar array / pilha de sprites... coloca ponteiro de ultimo e painel de penultimo
-	let troca = false;
-	do{
-		troca = false;			
-		for (let i = sprites.length - 2; i >= 0; i--){			
-			if (sprites[i].flag == 'painel' && sprites[i+1].flag != 'ponteiro' ) {
-				troca = sprites[i];
-				sprites[i] = sprites[i+1];
-				sprites[i+1] = troca;
-				troca = true;										
-			}
-            if (sprites[i].flag == 'ponteiro') {
-				troca = sprites[i];
-				sprites[i] = sprites[i+1];
-				sprites[i+1] = troca;
-				troca = true;
-			}
-            //troca gas e player de posição no array sprites...
-            if (sprites[i].flag == 'gas' && i > parseInt(encontrar('player'))) {
-                memo = encontrar('player');
-                troca = sprites[i];
-				sprites[i] = sprites[memo];
-				sprites[memo] = troca;
-                troca = false;
-            }
-		}
-        
-	}while(troca);
+    for (let i = sprites.length - 2; i >= 0; i--){
+        let troca = false;
+        if (sprites[i].flag == 'ponteiro' && i < sprites.length-1) {//ultimo elemento do array
+            troca = sprites[i];
+            sprites[i] = sprites[sprites.length-1];
+            sprites[sprites.length-1] = troca;
+            troca = true;
+        }
+        if (sprites[i].flag == 'painel' && i < sprites.length-2) {//penultimo elemento do array
+            troca = sprites[i];
+            sprites[i] = sprites[sprites.length-2];
+            sprites[sprites.length-2] = troca;
+            troca = true;
+        }
+        if (sprites[i].flag == 'player' && i < sprites.length-3) {//antepenultimo elemento do array
+            troca = sprites[i];
+            sprites[i] = sprites[sprites.length-3];
+            sprites[sprites.length-3] = troca;
+            troca = true;
+        }
+    }	
 }
 //************************************************************************************************ */
 function loop(){
     let imprimir = true;
+    organizarSprites();
     // limpar tela
 	ctx.clearRect(0,0,cnv.width,cnv.height);
 	for (let i = 0 ; i < sprites.length; i++) {//percorre array de sprites
@@ -156,10 +151,10 @@ function loop(){
             imprimir = false;
         }
         //eliminar do array
-        if (sprites[i].posY > 180 || sprites[i].posY < -30 || sprites[i].flag == 'remover') {
+        if (sprites[i].posY > cnv.height+23 || sprites[i].posY < -23 || sprites[i].flag == 'remover') {
             
             sprites.splice(i, 1);
-        }
+        }        
 	}
     if (imprimir) {
         //pause = true;
@@ -185,7 +180,7 @@ function fase01(){
             estrada(4);
             break;
         case 2:
-            gramado(4);construcao(1, 'e');organizarSprites();
+            gramado(4);construcao(1, 'e');
             break;
         case 3:
             menosGrama(4);gramado(3);
@@ -194,7 +189,7 @@ function fase01(){
             gramado(3);gas(150);
             break;
         case 5:
-            gramado(3);navio(cnv.width/2 +15);organizarSprites();
+            gramado(3);navio(cnv.width/2 +15);
             break;
         case 6:
             gramado(3)//;maisGrama(4);
