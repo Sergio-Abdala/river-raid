@@ -1,5 +1,6 @@
 var cnv = document.querySelector('canvas');
 var ctx = cnv.getContext('2d');
+//ctx.scale(-1, 1);
 //GLOBAIS VARIAVEIS.
 var sprites = new Array();
 var pause = false;
@@ -104,8 +105,8 @@ function ponte(){
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'ponte', 172, 15, 60, 23, 120, -24));
 }
 function navio(x){
-    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'navio', 3, 57, 33, 9, x, -24));
-    console.log('add navio');
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'navio', 3, 57, 33, 9, x, -14));
+    //console.log('add navio');
 }
 
 function organizarSprites () {
@@ -193,7 +194,7 @@ function fase01(){
             gramado(3);gas(150);
             break;
         case 5:
-            gramado(3);organizarSprites();
+            gramado(3);navio(cnv.width/2 +15);organizarSprites();
             break;
         case 6:
             gramado(3)//;maisGrama(4);
@@ -203,8 +204,8 @@ function fase01(){
             break;
 
         default:
-            gramado(4);navio(cnv.width/2 - 20);
-            contador.linha = 0
+            gramado(4);
+            contador.linha = 0;
             break;
     }
     contador.linha++;
