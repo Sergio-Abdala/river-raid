@@ -144,7 +144,8 @@ function loop(){
     }
     if (!pause && !gameOver) {
         contador.hodometro += sprites[encontrar('player')].speed;
-        console.log('km: '+contador.hodometro/10);
+        let km = contador.hodometro/100;
+        //console.log('km: '+km.toFixed(1));//.toFixed(1)
     }
     // limpar tela
 	ctx.clearRect(0,0,cnv.width,cnv.height);
@@ -159,11 +160,14 @@ function loop(){
         if (sprites[i].posY < 0) {
             imprimir = false;
         }
-        //eliminar do array
-        if (sprites[i].posY > cnv.height+23 || sprites[i].posY < -23 || sprites[i].flag == 'remover') {
-            sprites.splice(i, 1);
-        }        
 	}
+    //for secundario para remover obj depois de renderizar todos os elementos na tela
+    for (let k = 0 ; k < sprites.length; k++) {//percorre array de sprites
+        //eliminar do array
+        if (sprites[k].posY > cnv.height+23 || sprites[k].posY < -23 || sprites[k].flag == 'remover') {
+            sprites.splice(k, 1);
+        }
+    }
     if (imprimir) {
         //pause = true;
         fase01();
