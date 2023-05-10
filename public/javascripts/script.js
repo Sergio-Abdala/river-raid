@@ -139,6 +139,9 @@ function loop(){
     let imprimir = true;
     organizarSprites();
     contador.hodometro += sprites[encontrar('player')].speed;
+    if (contador.hodometro == 0) {
+        pause = true;
+    }
     // limpar tela
 	ctx.clearRect(0,0,cnv.width,cnv.height);
 	for (let i = 0 ; i < sprites.length; i++) {//percorre array de sprites
