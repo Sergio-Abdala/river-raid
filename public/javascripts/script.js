@@ -147,12 +147,11 @@ function loop(){
 		sprites[i].desenha();/////////////// renderiza na tela...
 
         /*verificar se existe algo acima da tela de jogo para saber quando renderizar nova linha*/
-        if (sprites[i].posY < -0.5) {
+        if (sprites[i].posY < 0) {
             imprimir = false;
         }
         //eliminar do array
         if (sprites[i].posY > cnv.height+23 || sprites[i].posY < -23 || sprites[i].flag == 'remover') {
-            
             sprites.splice(i, 1);
         }        
 	}

@@ -37,19 +37,24 @@ function keyupHandler(e){
 	//console.log(e.keyCode);
 	switch(e.keyCode){
 		case RIGHT:
-			sprites[encontrar('player')].movRight = false;            
+			sprites[encontrar('player')].movRight = false;
+			pause = false;
 		break;
 		case LEFT:
-			sprites[encontrar('player')].movLeft = false;            
+			sprites[encontrar('player')].movLeft = false;
+			pause = false;
 		break;
 		case UP:
 			sprites[encontrar('player')].movUp = false;
+			pause = false;
 		break;
 		case DOWN:
 			sprites[encontrar('player')].movDown = false;
+			pause = false;
 		break;
 		case 32: //barra de espaço
 			tiro();
+			pause = false;
 		break;
 		case 33://pag up
 			

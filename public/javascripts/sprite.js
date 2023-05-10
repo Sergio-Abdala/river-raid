@@ -84,7 +84,7 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 				gameOver = true;
 			}
         }
-		//colisão com tiro
+		//colisão com tiro obs: apenas o ultimo tiro dado é avaliado pelo colide!!!
 		if (sprites[encontrar('tiro')]){
 			if (this.flag != 'tiro' && this.flag != 'player' && colide(this, sprites[encontrar('tiro')])) {
 				//identificar oq colidiu com tiro
