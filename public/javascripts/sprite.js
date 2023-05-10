@@ -156,6 +156,25 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 				gameOver = true;
 			}
 		}
+		if (this.flag != 'gramado') {
+			//varrer array procurando colisões com gramado
+			for (let j = 0; j < sprites.length; j++) {
+				if (sprites[j].flag == 'gramado') {
+					if (colide(this, sprites[j])) {
+						//colidiu com gramado
+						if (this.flag == 'navio' || this.flag == 'helicoptero' || this.flag == 'aviao') {
+							if (this.movRight) {
+								this.movRight = false;
+								this.movLeft = true;
+							}else{
+								this.movRight = true;
+								this.movLeft = false;
+							}
+						}
+					}
+				}				
+			}			
+		}
     }
 }
 Sprite.prototype.metax = function(){
