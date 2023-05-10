@@ -32,6 +32,10 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
                 this.lar = 10;
                 this.alt = 14;
             }
+			if (this.flag == 'navio') {
+                //posição direita
+                this.srcX = 36;
+            }
         }else if(this.movLeft){
             this.posX -= this.speed;
             if (this.flag == 'player') {
@@ -40,6 +44,10 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
                 this.srcY = 18;
                 this.lar = 10;
                 this.alt = 14;
+            }
+			if (this.flag == 'navio') {
+                //posição esquerda
+                this.srcX = 3;
             }
         }else{
             if (this.flag == 'player') {
@@ -127,7 +135,7 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 					}
 				}
 			}
-		}		
+		}
 		//ponteiro
 		if (this.flag == 'ponteiro') {
 			if (sprites[encontrar('player')].speed < 1) {

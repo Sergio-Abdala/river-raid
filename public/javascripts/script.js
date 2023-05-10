@@ -107,6 +107,7 @@ function ponte(){
 function navio(x){
     //<---3  --->36 soma a largura no srcX para virar de lado...
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'navio', 3, 57, 33, 9, x, -14));
+    sprites[encontrar('navio')].speed = .1;
     //console.log('add navio');
 }
 
@@ -207,7 +208,7 @@ function fase01(){
             menosGrama(4);gramado(3);
             break;
         case 4:
-            gramado(3);gas(150);
+            gramado(3);gas(151);
             break;
         case 5:
             gramado(3);navio(cnv.width/2 +15);
@@ -216,9 +217,21 @@ function fase01(){
             gramado(3)//;maisGrama(4);
             break;
         case 7:
+            gramado(3);
+            break;
+        case 8:
+            gramado(3);gas(151);
+            break;
+        case 9:
+            gramado(3);
+            break;
+        case 10:
+            gramado(3);
+            break;
+        case 11:
             gramado(3);maisGrama(4);
             break;
-
+                                        
         default:
             gramado(4);
             contador.linha = 0;
