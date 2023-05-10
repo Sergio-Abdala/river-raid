@@ -62,9 +62,8 @@ function keyupHandler(e){
 		case 34://pag down
 						
 		break;
-		case 48: // 0 numero...			
-			help();
-			window.open("help.html")
+		case 48: // 0 numero...
+			window.open("/help");
 		break;
 		case 49: // 1 numero...			
 			
@@ -94,7 +93,8 @@ function keyupHandler(e){
 			console.log('numero 9 <==> teclado...' );
 		break;
 		case 72: // h letra...
-			console.log('letra h <==> teclado...' );			
+			console.log('letra h <==> teclado...' );
+			window.open("/help");
 		break;
 		case 77: // m letra...
 			console.log('letra m <==> teclado...');				

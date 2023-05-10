@@ -175,6 +175,15 @@ function encontrar(flag){//descobre index do objeto que corresponda a flag...
 	}
     return false;
 }
+function contarTiros(){//descobre quantos tiros tem em jogo
+    let countTiro = 0;
+	for (let i = sprites.length - 1; i >= 0; i--) {
+		if (sprites[i].flag == 'tiro') {
+			countTiro++
+		}
+	}
+    return countTiro;
+}
 function fase01(){
     switch (contador.linha) {
         case 0:
