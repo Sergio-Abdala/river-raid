@@ -62,7 +62,7 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
             this.posY += sprites[encontrar('player')].speed;			
         }
 		
-		if (this.flag == 'tiro'){
+		if (this.flag == 'tiro'){//movimenta ou remove
 			if (this.posY > 0) {
 				this.posY -= 3;
 			}else{
@@ -84,9 +84,8 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 				gameOver = true;
 			}
         }
-		//colisão com tiro obs: apenas o ultimo tiro dado é avaliado pelo colide!!!
-		if (contarTiros()){
-			//?????????????????????????????????????????????????????????????????????????
+		//colisão com tiro
+		if (contarTiros()){			
 			for (let j = 0; j < sprites.length; j++) {
 				if (sprites[j].flag == 'tiro') {
 					if (sprites[j].posY < 0) {
@@ -96,11 +95,10 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 						//identificar oq colidiu com tiro
 						console.log('tiro atingiu '+ this.flag);
 						contador.atingiu.push(this.flag);
-						let indexTiro = j;
 						//remover tiro
 						if(this.flag != 'explosao'){
-							console.log('remover '+ sprites[indexTiro].flag);
-							sprites[indexTiro].flag = 'remover';
+							console.log('remover '+ sprites[j].flag);
+							sprites[j].flag = 'remover';
 						}
 						switch (this.flag) {
 							case 'gas':
