@@ -7,7 +7,8 @@ var gameOver = false;
 var contador = {
     linha: 0,
     tiro: 0,
-    atingiu: Array()
+    atingiu: Array(),
+    hodometro: -100
 }
 //var linha = 0;
 /*ANOTAÇÕES...
@@ -137,6 +138,7 @@ function organizarSprites () {
 function loop(){
     let imprimir = true;
     organizarSprites();
+    contador.hodometro += sprites[encontrar('player')].speed;
     // limpar tela
 	ctx.clearRect(0,0,cnv.width,cnv.height);
 	for (let i = 0 ; i < sprites.length; i++) {//percorre array de sprites
