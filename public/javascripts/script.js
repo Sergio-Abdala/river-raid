@@ -140,6 +140,7 @@ function loop(){
     organizarSprites();    
     if (contador.hodometro == 0) {
         pause = true;
+        sprites[encontrar('ponteiro')].posX = 181;
     }
     if (!pause && !gameOver) {
         contador.hodometro += sprites[encontrar('player')].speed;
