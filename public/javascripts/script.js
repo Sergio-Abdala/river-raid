@@ -8,7 +8,7 @@ var contador = {
     linha: 0,
     tiro: 0,
     atingiu: Array(),
-    hodometro: -100
+    hodometro: -150
 }
 //var linha = 0;
 /*ANOTAÇÕES...
