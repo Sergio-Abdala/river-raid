@@ -102,7 +102,7 @@ function gas(x) {
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gas', 152, 14, 16, 26, x, -23));
 }
 function ponte(){
-    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'ponte', 172, 15, 60, 23, 120, -24));
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'ponte', 172, 15, 60, 23, 120, -23));
 }
 function navio(x){
     //<---3  --->36 soma a largura no srcX para virar de lado...
