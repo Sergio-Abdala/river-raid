@@ -110,7 +110,6 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 						}
 						switch (this.flag) {
 							case 'gas':
-									//4,110
 									this.srcX = 4;
 									this.srcY = 110;
 									this.flag = 'explosao';							
@@ -127,17 +126,30 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 									this.srcY = 110;
 									this.lar = 35;
 									this.posX += 1;
-									this.flag = 'explosao';							
-								break;
-							case 'aviao':
-									this.srcX = 7;
-									this.srcY = 110;
-									this.lar = 12;
-									this.alt = 8;
-									this.posX += 1;
 									this.movRight = false;
 									this.movLeft = false;
 									this.flag = 'explosao';							
+								break;
+							case 'aviao':
+									this.srcX = 4;
+									this.srcY = 110;
+									this.lar = 17;
+									this.alt = 13;
+									this.posX += 1;
+									this.movRight = false;
+									this.movLeft = false;
+									this.flag = 'explosao';
+								break;
+							case 'helicoptero':
+								this.srcX = 4;
+								this.srcY = 110;
+								this.lar = 17;
+								this.alt = 13;
+								this.posX += 1;
+								this.movRight = false;
+								this.movLeft = false;
+								this.flag = 'explosao';
+								//
 								break;
 							default:
 								break;

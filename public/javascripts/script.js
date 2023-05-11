@@ -111,10 +111,10 @@ function navio(x){
 }
 function aviao(direcao){
     if(direcao == 'd'){
-        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'aviao', 39, 42, 14, 7, 0, -14));
+        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid-transparente.png', 'aviao', 39, 40, 17, 7, 0, -17));
         sprites[encontrar('aviao')].movRight = true;
     }else{//direção esq
-        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'aviao', 39, 49, 14, 7, cnv.width, -14));
+        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid-transparente.png', 'aviao', 39, 48, 17, 7, cnv.width, -14));
         sprites[encontrar('aviao')].movLeft = true;
     }
     sprites[encontrar('aviao')].speed = 1;
@@ -185,8 +185,7 @@ function loop(){
     }
 	requestAnimationFrame(loop, "canvas");
 }
-function encontrar(flag){//descobre index do objeto que corresponda a flag...
-	//descobre qual obj do array tem a flag correspondente, avaliar para flag's identicas???
+function encontrar(flag){//descobre index do objeto que corresponda a flag com maior index do array
 	for (let i = sprites.length - 1; i >= 0; i--) {
 		if (sprites[i].flag == flag) {
 			return i;
@@ -236,7 +235,7 @@ function fase01(){
             gramado(3);
             break;
         case 10:
-            gramado(3);
+            gramado(3);aviao('e');aviao('d');
             break;
         case 11:
             gramado(3);maisGrama(4);
