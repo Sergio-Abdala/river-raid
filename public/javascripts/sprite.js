@@ -129,6 +129,16 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 									this.posX += 1;
 									this.flag = 'explosao';							
 								break;
+							case 'aviao':
+									this.srcX = 7;
+									this.srcY = 110;
+									this.lar = 12;
+									this.alt = 8;
+									this.posX += 1;
+									this.movRight = false;
+									this.movLeft = false;
+									this.flag = 'explosao';							
+								break;
 							default:
 								break;
 						}								
@@ -156,13 +166,12 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 				gameOver = true;
 			}
 		}
-		if (this.flag != 'gramado') {
-			//varrer array procurando colisões com gramado
+		if (this.flag != 'gramado') {//varrer array procurando colisões com gramado
 			for (let j = 0; j < sprites.length; j++) {
 				if (sprites[j].flag == 'gramado') {
 					if (colide(this, sprites[j])) {
 						//colidiu com gramado
-						if (this.flag == 'navio' || this.flag == 'helicoptero' || this.flag == 'aviao') {
+						if (this.flag == 'navio' || this.flag == 'helicoptero') {
 							if (this.movRight) {
 								this.movRight = false;
 								this.movLeft = true;

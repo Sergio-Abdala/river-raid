@@ -106,8 +106,18 @@ function ponte(){
 }
 function navio(x){
     //<---3  --->36 soma a largura no srcX para virar de lado...
-    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'navio', 3, 57, 33, 9, x, -14));
-    sprites[encontrar('navio')].speed = .1;
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid-transparente.png', 'navio', 3, 57, 33, 9, x, -14));
+    //console.log('add navio');
+}
+function aviao(direcao){
+    if(direcao == 'd'){
+        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'aviao', 39, 42, 14, 7, 0, -14));
+        sprites[encontrar('aviao')].movRight = true;
+    }else{
+        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'aviao', 39, 49, 14, 7, cnv.width, -14));
+        sprites[encontrar('aviao')].movLeft = true;
+    }
+    sprites[encontrar('aviao')].speed = 1;
     //console.log('add navio');
 }
 
@@ -158,14 +168,14 @@ function loop(){
 		sprites[i].desenha();/////////////// renderiza na tela...
 
         /*verificar se existe algo acima da tela de jogo para saber quando renderizar nova linha*/
-        if (sprites[i].posY < 0) {
+        if (sprites[i].posY < 0 && sprites[i].flag == 'gramado') {
             imprimir = false;
         }
 	}
     //for secundario para remover obj depois de renderizar todos os elementos na tela
     for (let k = 0 ; k < sprites.length; k++) {//percorre array de sprites
         //eliminar do array
-        if (sprites[k].posY > cnv.height+23 || sprites[k].posY < -23 || sprites[k].flag == 'remover') {
+        if (sprites[k].posY > cnv.height+3 || sprites[k].posY < -23 || sprites[k].posX > cnv.width+33 || sprites[k].posX < -33 || sprites[k].flag == 'remover') {
             sprites.splice(k, 1);
         }
     }
