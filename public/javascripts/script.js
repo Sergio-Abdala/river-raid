@@ -113,12 +113,13 @@ function aviao(direcao){
     if(direcao == 'd'){
         sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid-transparente.png', 'aviao', 39, 40, 17, 7, 0, -17));
         sprites[encontrar('aviao')].movRight = true;
+        sprites[encontrar('aviao')].speed = 2;
     }else{//direção esq
         sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid-transparente.png', 'aviao', 39, 48, 17, 7, cnv.width, -14));
         sprites[encontrar('aviao')].movLeft = true;
-    }
-    sprites[encontrar('aviao')].speed = 1;
-    //console.log('add navio');
+        sprites[encontrar('aviao')].speed = 1;
+    }    
+    baixarGramado();
 }
 
 function organizarSprites () {
@@ -201,6 +202,17 @@ function contar(obj){//descobre quantos tiros tem em jogo
 		}
 	}
     return countObj;
+}
+function baixarGramado(){
+    for (let i = 1; i < sprites.length; i++) {
+        if (sprites[i-1].flag != 'gramado' && sprites[i].flag == 'gramado') {
+            troca = sprites[i];
+            sprites[i] = sprites[i-1];
+            sprites[i-1] = troca;
+            i=1;
+        }
+        
+    }
 }
 function fase01(){
     switch (contador.linha) {

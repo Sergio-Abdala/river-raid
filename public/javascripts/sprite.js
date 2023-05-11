@@ -63,7 +63,9 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
         }else if(this.movDown){
             this.speed = .5;
         }else{
-            this.speed = 1;
+			if (this.flag == 'player') {
+				this.speed = 1;
+			}
         }
         //movimento vertical
         if (this.flag != 'player' && this.flag != 'painel' && this.flag != 'ponteiro' && this.flag != 'tiro') {//ñ é o player todos os demais elementos...
