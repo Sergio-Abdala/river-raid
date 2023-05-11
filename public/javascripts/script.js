@@ -113,7 +113,7 @@ function aviao(direcao){
     if(direcao == 'd'){
         sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'aviao', 39, 42, 14, 7, 0, -14));
         sprites[encontrar('aviao')].movRight = true;
-    }else{
+    }else{//direção esq
         sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'aviao', 39, 49, 14, 7, cnv.width, -14));
         sprites[encontrar('aviao')].movLeft = true;
     }
@@ -194,14 +194,14 @@ function encontrar(flag){//descobre index do objeto que corresponda a flag...
 	}
     return false;
 }
-function contarTiros(){//descobre quantos tiros tem em jogo
-    let countTiro = 0;
+function contar(obj){//descobre quantos tiros tem em jogo
+    let countObj = 0;
 	for (let i = sprites.length - 1; i >= 0; i--) {
-		if (sprites[i].flag == 'tiro') {
-			countTiro++
+		if (sprites[i].flag == obj) {
+			countObj++
 		}
 	}
-    return countTiro;
+    return countObj;
 }
 function fase01(){
     switch (contador.linha) {

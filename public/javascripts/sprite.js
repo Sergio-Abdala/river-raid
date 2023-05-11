@@ -93,7 +93,7 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 			}
         }
 		//colisão com tiro
-		if (contarTiros()){			
+		if (contar('tiro')){			
 			for (let j = 0; j < sprites.length; j++) {
 				if (sprites[j].flag == 'tiro') {
 					if (sprites[j].posY < 0) {
