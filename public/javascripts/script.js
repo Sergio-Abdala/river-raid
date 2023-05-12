@@ -73,7 +73,7 @@ function construcao(lin, lad){
     }    
     //direita
     if (lad == 'd') {
-        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 117, 15, 30, 23, 270-lin*30, -23));
+        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'construcao', 117, 15, 30, 23, 270-lin*30, -23));
     }    
 }
 function estrada(id){
