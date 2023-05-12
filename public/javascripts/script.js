@@ -69,7 +69,7 @@ function menosRio(id){
 function construcao(lin, lad){
     //esquera
     if (lad == 'e') {
-        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 117, 15, 30, 23, lin*30, -23));
+        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'construcao', 117, 15, 30, 23, lin*30, -23));
     }    
     //direita
     if (lad == 'd') {
@@ -119,7 +119,6 @@ function helicoptero(direcao, x, y){
         sprites[encontrar('helicoptero')].movLeft = true;
         sprites[encontrar('helicoptero')].speed = 1;
     }    
-    baixarGramado();
 }
 function aviao(direcao){
     if(direcao == 'd'){
@@ -131,7 +130,7 @@ function aviao(direcao){
         sprites[encontrar('aviao')].movLeft = true;
         sprites[encontrar('aviao')].speed = 1;
     }    
-    baixarGramado();
+    //baixarGramado();
 }
 function explosao(X, Y){
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid-transparente.png', 'explosao', 6, 98, 13, 9, X, Y));
@@ -163,7 +162,8 @@ function organizarSprites () {
 //************************************************************************************************ */
 function loop(){
     let imprimir = true;
-    organizarSprites();    
+    organizarSprites();
+    baixarGramado();   
     if (contador.hodometro == 0) {//condição de start...
         pause = true;
         sprites[encontrar('ponteiro')].posX = 181;
@@ -237,38 +237,68 @@ function fase01(){
             estrada(4);
             break;
         case 2:
-            gramado(4);construcao(1, 'e');
+            gramado(4);
             break;
         case 3:
-            menosGrama(4);gramado(3);
+            gramado(4);
             break;
         case 4:
-            gramado(3);gas(151);
+            gramado(3);maisRio(4);
             break;
         case 5:
-            gramado(3);navio(cnv.width/2 +15);
+            gramado(3);
             break;
         case 6:
-            gramado(3)//;maisGrama(4);
+            gramado(3);gas(151);
             break;
         case 7:
             gramado(3);
             break;
         case 8:
-            gramado(3);gas(151);
+            gramado(3);
             break;
         case 9:
             gramado(3);
             break;
         case 10:
-            gramado(3);aviao('e');aviao('d');
+            gramado(3);
             break;
         case 11:
             gramado(3);maisGrama(4);
             break;
+        case 12:
+            gramado(4);construcao(1, 'e');
+            break;
+        case 13:
+            menosGrama(4);gramado(3);
+            break;
+        case 14:
+            gramado(3);gas(151);
+            break;
+        case 15:
+            gramado(3);navio(cnv.width/2 +15);
+            break;
+        case 16:
+            gramado(3)//;maisGrama(4);
+            break;
+        case 17:
+            gramado(3);helicoptero('e', 120, -10);
+            break;
+        case 18:
+            gramado(3);gas(151);
+            break;
+        case 19:
+            gramado(3);
+            break;
+        case 20:
+            gramado(3);aviao('e');aviao('d');
+            break;
+        case 21:
+            gramado(3);maisGrama(4);
+            break;
                                         
         default:
-            gramado(4);ponte();
+            estrada(4);ponte();
             contador.linha = 0;
             break;
     }

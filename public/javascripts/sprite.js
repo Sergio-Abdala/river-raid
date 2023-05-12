@@ -36,6 +36,9 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
                 //posição direita
                 this.srcX = 36;
             }
+			if (this.flag == 'helicoptero') {
+				this.srcY = 45;
+			}
         }else if(this.movLeft){
             this.posX -= this.speed;
             if (this.flag == 'player') {
@@ -49,6 +52,9 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
                 //posição esquerda
                 this.srcX = 3;
             }
+			if (this.flag == 'helicoptero') {
+				this.srcY = 34;
+			}
         }else{
             if (this.flag == 'player') {
                 //posição inicial avião
@@ -190,12 +196,15 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 					if (colide(this, sprites[j])) {
 						//colidiu com gramado
 						if (this.flag == 'navio' || this.flag == 'helicoptero') {
+							console.log(this.movLeft +' <== '+ this.flag +' ==> '+ this.movRight +' colidiu com gramado');
 							if (this.movRight) {
 								this.movRight = false;
 								this.movLeft = true;
+								this.posX -= this.metax();
 							}else{
 								this.movRight = true;
 								this.movLeft = false;
+								this.posX += this.metax();
 							}
 						}
 					}
