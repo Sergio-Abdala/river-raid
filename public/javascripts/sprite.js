@@ -103,56 +103,60 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 					}
 					if (this.flag != 'tiro' && this.flag != 'player' && colide(this, sprites[j])) {
 						//identificar oq colidiu com tiro
-						console.log('tiro atingiu '+ this.flag);
+						//console.log('tiro atingiu '+ this.flag);
 						contador.atingiu.push(this.flag);
 						//remover tiro
 						if(this.flag != 'explosao'){
-							console.log('remover '+ sprites[j].flag);
+							//console.log('remover '+ sprites[j].flag);
 							sprites[j].flag = 'remover';
 						}
 						switch (this.flag) {
 							case 'gas':
-									this.srcX = 4;
-									this.srcY = 110;
-									this.flag = 'explosao';							
+									this.srcX = 6;//6, 98, 13, 9
+									this.srcY = 98;
+									this.lar = 13;
+									this.alt = 9;
+									this.flag = 'explosao';//menor frame menor
 								break;
-							case 'ponte':
-									this.srcX = 25;
-									this.srcY = 110;
-									this.lar = 35;
-									this.posX += 13;
-									this.flag = 'explosao';							
+							case 'ponte'://lar = 60
+								this.srcX = 6;//6, 98, 13, 9
+								this.srcY = 98;
+								this.lar = 13;
+								this.alt = 9;
+								this.posX += 9;
+								this.flag = 'explosao';//menor frame menor
+								//inserir outra explosao
+								explosao(this.posX+30, this.posY);
 								break;
 							case 'navio':
-									this.srcX = 25;
-									this.srcY = 110;
-									this.lar = 35;
-									this.posX += 1;
+									this.srcX = 29;//25
+									this.srcY = 98;
+									this.lar = 27;
+									this.alt = 9;
+									this.posX += 2;
 									this.movRight = false;
 									this.movLeft = false;
 									this.flag = 'explosao';							
 								break;
 							case 'aviao':
-									this.srcX = 4;
-									this.srcY = 110;
-									this.lar = 17;
-									this.alt = 13;
-									this.posX += 1;
-									this.movRight = false;
-									this.movLeft = false;
-									this.flag = 'explosao';
-								break;
-							case 'helicoptero':
-								this.srcX = 4;
-								this.srcY = 110;
-								this.lar = 17;
-								this.alt = 13;
-								this.posX += 1;
+								this.srcX = 6;//6, 98, 13, 9
+								this.srcY = 98;
+								this.lar = 13;
+								this.alt = 9;
+								this.flag = 'explosao';//menor frame menor
 								this.movRight = false;
 								this.movLeft = false;
-								this.flag = 'explosao';
-								//
 								break;
+							case 'helicoptero':
+								this.srcX = 6;//6, 98, 13, 9
+								this.srcY = 98;
+								this.lar = 13;
+								this.alt = 9;
+								this.flag = 'explosao';//explosão menor frame menor
+								this.movRight = false;
+								this.movLeft = false;
+								break;
+							//
 							default:
 								break;
 						}								
@@ -197,6 +201,35 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 					}
 				}				
 			}			
+		}
+		//animar explosao
+		if (this.flag == 'explosao') {
+			
+			if (!(contador.hodometro % 25)) {
+				console.log('anima explosao' + this.srcX);
+				if(this.srcX == 6){//explosão menor frame maior //4, 110, 17, 13
+					//console.log();
+					this.srcX = 4;
+					this.srcY = 110;
+					this.lar = 17;
+					this.alt = 13;
+				}else if(this.srcX == 4){//explosão menor frame menor //6, 98, 13, 9
+					this.srcX = 6;
+					this.srcY = 98;
+					this.lar = 13;
+					this.alt = 9;
+				}else if(this.srcX == 29){//explosão maior frame menor 
+					this.srcX = 25;
+					this.srcY = 110;
+					this.lar = 35;
+					this.alt = 13;
+				}else if(this.srcX == 25){//explosão maior frame menor 
+					this.srcX = 29;
+					this.srcY = 98;
+					this.lar = 27;
+					this.alt = 9;
+				}
+			}
 		}
     }
 }

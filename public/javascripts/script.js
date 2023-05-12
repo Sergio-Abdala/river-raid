@@ -121,7 +121,9 @@ function aviao(direcao){
     }    
     baixarGramado();
 }
-
+function explosao(X, Y){
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid-transparente.png', 'explosao', 6, 98, 13, 9, X, Y));
+}
 function organizarSprites () {
 	//organizar array / pilha de sprites... coloca ponteiro de ultimo e painel de penultimo
     for (let i = sprites.length - 2; i >= 0; i--){
@@ -254,7 +256,7 @@ function fase01(){
             break;
                                         
         default:
-            gramado(4);
+            gramado(4);ponte();
             contador.linha = 0;
             break;
     }
