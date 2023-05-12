@@ -109,6 +109,18 @@ function navio(x){
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid-transparente.png', 'navio', 3, 57, 33, 9, x, -14));
     //console.log('add navio');
 }
+function helicoptero(direcao, x, y){
+    if(direcao == 'd'){
+        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid-transparente.png', 'helicoptero', 2, 45, 17, 11, x, y));
+        sprites[encontrar('helicoptero')].movRight = true;
+        sprites[encontrar('helicoptero')].speed = 1;
+    }else{//direção esq
+        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid-transparente.png', 'helicoptero', 2, 34, 17, 11, x, y));
+        sprites[encontrar('helicoptero')].movLeft = true;
+        sprites[encontrar('helicoptero')].speed = 1;
+    }    
+    baixarGramado();
+}
 function aviao(direcao){
     if(direcao == 'd'){
         sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid-transparente.png', 'aviao', 39, 40, 17, 7, 0, -17));
@@ -152,7 +164,7 @@ function organizarSprites () {
 function loop(){
     let imprimir = true;
     organizarSprites();    
-    if (contador.hodometro == 0) {
+    if (contador.hodometro == 0) {//condição de start...
         pause = true;
         sprites[encontrar('ponteiro')].posX = 181;
     }

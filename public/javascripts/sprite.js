@@ -231,6 +231,22 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 				}
 			}
 		}
+		//animar helicoptero
+		if (this.flag == 'helicoptero') {
+			if (!(contador.hodometro % 15)){
+				if (this.srcX == 2) {
+					this.srcX = 19;
+				}else if (this.srcX == 19) {
+					this.srcX = 2;
+				}
+			}
+			if (this.movRight) {
+				this.srcY == 45;
+			}
+			if (this.movLeft) {
+				this.srcY = 34;
+			}
+		}
     }
 }
 Sprite.prototype.metax = function(){
