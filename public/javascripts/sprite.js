@@ -110,7 +110,9 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 					if (this.flag != 'tiro' && this.flag != 'player' && colide(this, sprites[j])) {
 						//identificar oq colidiu com tiro
 						//console.log('tiro atingiu '+ this.flag);
-						contador.atingiu.push(this.flag);
+						if (this.flag != 'explosao' && this.flag != 'remover') {
+							contador.atingiu.push(this.flag);
+						}						
 						//remover tiro
 						if(this.flag != 'explosao'){
 							//console.log('remover '+ sprites[j].flag);
@@ -244,8 +246,8 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 		if (this.flag == 'helicoptero') {
 			if (!(contador.hodometro % 15)){
 				if (this.srcX == 2) {
-					this.srcX = 19;
-				}else if (this.srcX == 19) {
+					this.srcX = 20;
+				}else if (this.srcX == 20) {
 					this.srcX = 2;
 				}
 			}

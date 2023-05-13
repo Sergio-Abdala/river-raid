@@ -317,59 +317,125 @@ function fase01(){
             gramado(3);navio(130);
             break;
         case 6:
-            gramado(3);gas(161);
+            gramado(3);gas(171);
             break;
         case 7:
-            gramado(3);helicoptero('p', 130, -23);
+            gramado(3);helicoptero('p', 110, -23);
             break;
         case 8:
-            gramado(3);meioIn(0);
+            gramado(3);//meioIn(0);
             break;
         case 9:
-            gramado(3);meio();meioIn(1);
+            gramado(3);gas(151);//meio();meioIn(1);        //ate aqui ok
             break;
         case 10:
-            gramado(3);meio(2);meioIn(2);
+            gramado(3);//meio(2);meioIn(2);      // ate aqui ok
             break;
         case 11:
-            gramado(3);maisGrama(4);meio(1);meioFim(2);contador.fiMeio++;
+            gramado(3);gas(185);//maisGrama(4);//meio(1);meioFim(2);contador.fiMeio++;
             break;
         case 12:
-            gramado(4);construcao(1, 'e');meioFim(1);contador.fiMeio++;
+            gramado(3);construcao(1, 'd');//meioFim(1);contador.fiMeio++;   //ok
             break;
         case 13:
-            menosGrama(4);gramado(3);meioFim(0);
+            gramado(3);construcao(1, 'e');//meioFim(0);menosGrama(4);      //ok
             break;
         case 14:
-            gramado(3);gas(151);
+            gramado(3);construcao(1, 'd');//gas(151);
             break;
         case 15:
-            gramado(3);navio(cnv.width/2 +15);
+            gramado(3);gas('171');//navio(cnv.width/2 +15);                  //ok
             break;
         case 16:
             gramado(3)//;maisGrama(4);
             break;
         case 17:
-            gramado(3);helicoptero('e', 120, -10);
+            gramado(3);helicoptero('p', 110, -10);
             break;
         case 18:
-            gramado(3);gas(151);
+            gramado(3);gas(121);
             break;
         case 19:
-            gramado(3);
+            gramado(3);helicoptero('p', 140, -10);                      //ok
             break;
         case 20:
-            gramado(3);aviao('e');aviao('d');
+            gramado(3);gas('180');//aviao('e');aviao('d');              ok
             break;
         case 21:
-            gramado(3);maisGrama(4);
+            gramado(3);//maisGrama(4);
             break;
         case 22:
-            gramado(4);
-            break;                 
-        default:
+            gramado(3);navio(170);
+            break;
+        case 23:
+            gramado(3);helicoptero('p', 170, -12);
+            break;
+        case 24:
+            gramado(3);
+            break;
+        case 25:
+            gramado(3);navio(120);
+            break;
+        case 26:
+            gramado(3);gas(140);
+            break;
+        case 27:
+            gramado(3);
+            break;
+        case 28:
+            gramado(3);helicoptero('p', 180, -15);
+            break;
+        case 29:
+            gramado(3);construcao(1, 'd');
+            break;
+        case 30:
+            gramado(3);construcao(1, 'e');
+            break;
+        case 31:
+            gramado(3);construcao(1, 'd');
+            break;
+        case 32:
+            gramado(3);helicoptero('p', 180, -15);
+            break;
+        case 33:
+            gramado(3);construcao(1, 'd');
+            break;//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=25s
+        case 34:
+            gramado(3);navio(170);
+            break;//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=26s
+        case 35:
+            gramado(3);
+            break;
+        case 36:
+            gramado(3);helicoptero('p', 180, -15);
+            break;
+        case 37:
+            gramado(3);construcao(2, 'd');
+            break;
+        case 38:
+            gramado(3);gas(170);
+            break;
+        case 39:
+            gramado(3);helicoptero('p', 120, -15);
+            break;//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=27s
+        case 40:
+            gramado(3);menosRio(4);
+            break;
+        case 41:
+            gramado(4);navio(135);
+            break;
+        case 42:
             estrada(4);ponte();
-            contador.linha = 0;
+            break;
+        case 43:
+            gramado(4);
+            break;
+        case 44:
+            gramado(4);construcao(1, 'd');//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=28s
+            break;
+        default:
+            //estrada(2)//;ponte();
+            contador.linha = -1;
             break;
     }
     contador.linha++;
