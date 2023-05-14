@@ -5,7 +5,7 @@ var sprites = new Array();
 var pause = false;
 var gameOver = false;
 var contador = {
-    linha: 0,
+    linha: 55,
     tiro: 0,
     atingiu: Array(),
     hodometro: -150,
@@ -433,9 +433,55 @@ function fase01(){
         case 44:
             gramado(4);construcao(1, 'd');//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=28s
             break;
+        case 45:
+            gramado(3);maisRio(4);
+            break;
+        case 46:
+            gramado(3);navio(161);
+            break;
+        case 47:
+            gramado(3);
+            break;
+        case 48:
+            gramado(3);construcao(1, 'd');
+            break;
+        case 49:
+            gramado(2);maisRio(3);
+            break;
+        case 50:
+            gramado(2);navio(171);
+            break;
+        case 51:
+            gramado(2);menosRio(3);
+            break;
+        case 52:
+            gramado(3);helicoptero('e', 161, -12);sprites[encontrar('helicoptero')].speed = .5;
+            break;
+        case 53:
+            gramado(3);gas(181);
+            break;//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=32s
+        case 54:
+            gramado(3);helicoptero('p', 100, -23);
+            break;
+        case 55:
+            gramado(2);maisRio(3);
+            break;
+        case 56:
+            gramado(1);maisRio(2);
+            break;
+        case 57:
+            gramado(1);construcao(0, 'e');
+            break;
+        case 58:
+            gramado(1);gas(240);
+            break;
+        case 59:
+            maisRio(1);//trabalhar deslocamento meio gramado
+            break;
         default:
             //estrada(2)//;ponte();
-            contador.linha = -1;
+            //contador.linha = -1;
+            pause = true;
             break;
     }
     contador.linha++;
