@@ -5,7 +5,7 @@ var sprites = new Array();
 var pause = false;
 var gameOver = false;
 var contador = {
-    linha: 55,
+    linha: 58,
     tiro: 0,
     atingiu: Array(),
     hodometro: -150,
@@ -33,6 +33,12 @@ function gramado(id){
         //direita
         sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 30, 23, 270-i*30, -23));
     }
+}
+function grama(){
+    //esquera
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 3, 23, 0, -23));
+    //direita
+    sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 3, 23, cnv.width-3, -23));
 }
 function menosGrama(id){
     //diagonal abre esquerda 4/3
@@ -478,6 +484,21 @@ function fase01(){
         case 59:
             maisRio(1);//trabalhar deslocamento meio gramado
             break;
+        case 60:
+            grama();helicoptero('p', 6, -13);//trabalhar deslocamento meio gramado
+            break;
+        case 61:
+            grama();meioIn(0);
+            break;
+        case 62:
+            grama();meioIn(1);gas(90);
+            break;
+        case 63:
+            grama();meio(2);navio(70);
+            break;
+        case 64:
+            grama();meio(2);navio(190);
+            break;//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=37s
         default:
             //estrada(2)//;ponte();
             //contador.linha = -1;
