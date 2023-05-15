@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'RIVER RAID' });
 });
 router.get('/help', function(req, res, next) {
-  res.render('help', { title: 'RIVER RAID' });
+  res.render('help', { title: 'RIVER RAID pagina de ajuda...' });
 });
 
 module.exports = router;
