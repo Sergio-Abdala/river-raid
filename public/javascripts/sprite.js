@@ -111,7 +111,7 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 						//identificar oq colidiu com tiro
 						//console.log('tiro atingiu '+ this.flag);
 						if (this.flag != 'explosao' && this.flag != 'remover') {
-							contador.atingiu.push(this.flag);
+							GLOBAIS.atingiu.push(this.flag);
 						}						
 						//remover tiro
 						if(this.flag != 'explosao'){
@@ -216,7 +216,7 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 		//animar explosao
 		if (this.flag == 'explosao') {
 			
-			if (!(contador.hodometro % 25)) {
+			if (!(GLOBAIS.hodometro % 25)) {
 				console.log('anima explosao' + this.srcX);
 				if(this.srcX == 6){//explosão menor frame maior //4, 110, 17, 13
 					//console.log();
@@ -244,7 +244,7 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 		}
 		//animar helicoptero
 		if (this.flag == 'helicoptero') {
-			if (!(contador.hodometro % 15)){
+			if (!(GLOBAIS.hodometro % 15)){
 				if (this.srcX == 2) {
 					this.srcX = 20;
 				}else if (this.srcX == 20) {

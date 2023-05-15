@@ -39,27 +39,27 @@ function keyupHandler(e){
 		case RIGHT:
 			sprites[encontrar('player')].movRight = false;
 			pause = false;
-			contador.hodometro = 1;
+			GLOBAIS.hodometro = 1;
 		break;
 		case LEFT:
 			sprites[encontrar('player')].movLeft = false;
 			pause = false;
-			contador.hodometro = 1;
+			GLOBAIS.hodometro = 1;
 		break;
 		case UP:
 			sprites[encontrar('player')].movUp = false;
 			pause = false;
-			contador.hodometro = 1;
+			GLOBAIS.hodometro = 1;
 		break;
 		case DOWN:
 			sprites[encontrar('player')].movDown = false;
 			pause = false;
-			contador.hodometro = 1;
+			GLOBAIS.hodometro = 1;
 		break;
 		case 32: //barra de espaço
 			tiro();
 			pause = false;
-			contador.hodometro = 1;
+			GLOBAIS.hodometro = 1;
 		break;
 		case 33://pag up
 			

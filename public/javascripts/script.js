@@ -4,8 +4,8 @@ var ctx = cnv.getContext('2d');
 var sprites = new Array();
 var pause = false;
 var gameOver = false;
-var contador = {
-    linha: 63,
+var GLOBAIS = {
+    linha: 69,
     tiro: 0,
     atingiu: Array(),
     hodometro: -150,
@@ -120,7 +120,7 @@ function meio(id){
     }    
 }
 function meioFim(id){//gramado.lar=30 .alt=23 baixa 13 conforme camada sucessiva 
-    let baixar = 13*contador.fiMeio;// (id) ?  : ;
+    let baixar = 13*GLOBAIS.fiMeio;// (id) ?  : ;
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 30, 2, cnv.width/2-15-15*id, -2+baixar));//
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 24, 4, cnv.width/2-12-15*id, -4+baixar));
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 18, 6, cnv.width/2-9-15*id, -6+baixar));
@@ -136,7 +136,7 @@ function meioFim(id){//gramado.lar=30 .alt=23 baixa 13 conforme camada sucessiva
         sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 30, 13, cnv.width/2-15*id, -13+baixar));
         sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 15, 13, cnv.width/2, -13+baixar));
     }
-    contador.fiMeio++;
+    GLOBAIS.fiMeio++;
 }
 //
 function construcao(lin, lad){
@@ -167,7 +167,7 @@ function ponteiro(nivel){//vazio == 113 posX cheio = 181   tamanho = 68
 }
 function tiro(){
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'tiro', 6, 21, 2, 8, sprites[encontrar('player')].meiox()-1, sprites[encontrar('player')].posY));
-    contador.tiro++;    
+    GLOBAIS.tiro++;    
 }
 //objetos npc / elementos do jogo...
 function gas(x) {
@@ -239,13 +239,13 @@ function loop(){
     let imprimir = true;
     organizarSprites();
     baixarGramado();   
-    if (contador.hodometro == 0) {//condição de start...
+    if (GLOBAIS.hodometro == 0) {//condição de start...
         pause = true;
         sprites[encontrar('ponteiro')].posX = 181;
     }
     if (!pause && !gameOver) {
-        contador.hodometro += sprites[encontrar('player')].speed;
-        let km = contador.hodometro/100;
+        GLOBAIS.hodometro += sprites[encontrar('player')].speed;
+        let km = GLOBAIS.hodometro/100;
         //console.log('km: '+km.toFixed(1));//.toFixed(1)
     }
     // limpar tela
@@ -304,7 +304,7 @@ function baixarGramado(){
     }
 }
 function fase01(){
-    switch (contador.linha) {
+    switch (GLOBAIS.linha) {
         case 0:
             gramado(4);
             break;
@@ -501,16 +501,34 @@ function fase01(){
             grama();meio(2);navio(190);
             break;//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=37s
         case 65:
-            grama();meioFim(1);//contador.fiMeio++;
+            grama();meioFim(1);//GLOBAIS.fiMeio++;
             break;
         case 66:
             grama();meioFim(0);
             break;
+        case 67:
+            grama();helicoptero('p', 25, -15);
+            break;
+        case 68:
+            maisGrama(1);
+            break;
+        case 69:
+            gramado(1);maisGrama(2);
+            break;
+        case 70:
+            gramado(2);gas(75);sprites[encontrar('gas')].posY = -10;
+            break;
+        case 71:
+            gramado(2);navio(75);
+            break;
+        case 72:
+            gramado(2);navio(175);
+            break;//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=39s
         default:
             //estrada(2)//;ponte();
-            //contador.linha = -1;
+            //GLOBAIS.linha = -1;
             pause = true;
             break;
     }
-    contador.linha++;
+    GLOBAIS.linha++;
 }
