@@ -5,7 +5,7 @@ var sprites = new Array();
 var pause = false;
 var gameOver = false;
 var contador = {
-    linha: 58,
+    linha: 63,
     tiro: 0,
     atingiu: Array(),
     hodometro: -150,
@@ -132,10 +132,11 @@ function meioFim(id){//gramado.lar=30 .alt=23 baixa 13 conforme camada sucessiva
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 9, 6, cnv.width/2+15*id, -6+baixar));
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 6, 8, cnv.width/2+15*id, -8+baixar));
     sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 3, 10, cnv.width/2+15*id, -10+baixar));
-    if (id > 1) {
+    if (id) {
         sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 30, 13, cnv.width/2-15*id, -13+baixar));
-        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 30, 13, cnv.width/2, -13+baixar));
+        sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 15, 13, cnv.width/2, -13+baixar));
     }
+    contador.fiMeio++;
 }
 //
 function construcao(lin, lad){
@@ -338,10 +339,10 @@ function fase01(){
             gramado(3);//meio(2);meioIn(2);      // ate aqui ok
             break;
         case 11:
-            gramado(3);gas(185);//maisGrama(4);//meio(1);meioFim(2);contador.fiMeio++;
+            gramado(3);gas(185);//maisGrama(4);//meio(1);meioFim(2);
             break;
         case 12:
-            gramado(3);construcao(1, 'd');//meioFim(1);contador.fiMeio++;   //ok
+            gramado(3);construcao(1, 'd');//meioFim(1);
             break;
         case 13:
             gramado(3);construcao(1, 'e');//meioFim(0);menosGrama(4);      //ok
@@ -499,6 +500,12 @@ function fase01(){
         case 64:
             grama();meio(2);navio(190);
             break;//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=37s
+        case 65:
+            grama();meioFim(1);//contador.fiMeio++;
+            break;
+        case 66:
+            grama();meioFim(0);
+            break;
         default:
             //estrada(2)//;ponte();
             //contador.linha = -1;
