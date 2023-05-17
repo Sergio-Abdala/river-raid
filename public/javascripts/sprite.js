@@ -101,10 +101,10 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
 			}
         }
 		//colisão com tiro
-		if (contar('tiro')){			
+		if (contar('tiro')){
 			for (let j = 0; j < sprites.length; j++) {
 				if (sprites[j].flag == 'tiro') {
-					if (sprites[j].posY < 0) {
+					if (sprites[j].posY < 0) {//tiro ao sair da tela em cima é removido...
 						sprites[j].flag = 'remover';
 					}
 					if (this.flag != 'tiro' && this.flag != 'player' && colide(this, sprites[j])) {
