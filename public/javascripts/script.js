@@ -5,7 +5,7 @@ var sprites = new Array();
 var pause = false;
 var gameOver = false;
 var GLOBAIS = {
-    linha: 69,
+    linha: 120,
     tiro: 0,
     atingiu: Array(),
     hodometro: -150,
@@ -273,6 +273,8 @@ function loop(){
         //pause = true;
         fase01();
     }
+    ctx.font = "10px Arial";
+    ctx.fillText("linha: "+ GLOBAIS.linha, 10, 140);
 	requestAnimationFrame(loop, "canvas");
 }
 function encontrar(flag){//descobre index do objeto que corresponda a flag com maior index do array
@@ -524,6 +526,170 @@ function fase01(){
         case 72:
             gramado(2);navio(175);
             break;//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=39s
+        case 73:
+            gramado(1);maisRio(2);
+            break;
+        case 74:
+            gramado(1);construcao(0, 'e');
+            break;
+        case 75:
+            gramado(1);construcao(0, 'd');
+            break;
+        case 76:
+            maisRio(1);
+            break;
+        case 77:
+            grama();gas(260);sprites[encontrar('gas')].posY=-15;meioIn(0);
+            break;
+        case 78:
+            grama();meioIn(1);gas();
+            break;
+        case 79:
+            grama();meioIn(2);meio(3);
+            break;
+        case 80:
+            grama();meioIn(3);meio(2);meio(3);
+            sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 30, 23, cnv.width/2-75, -20));        
+            sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 30, 23, cnv.width/2+45, -20));
+            sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 30, 23, cnv.width/2-75, -16));        
+            sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 30, 23, cnv.width/2+45, -16));
+            helicoptero('p', 50, 10);gas(50);
+            break;
+        case 81:
+            meioIn(4);meio(3);meio(2);grama();construcao(4, 'd');
+            break;
+        case 82:
+            meioFim(4);grama();meio(2);
+            sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 30, 23, cnv.width/2+30, -10));
+            sprites.push(new Sprite('images/Atari - River Raid Atari 2600 - River Raid.png', 'gramado', 84, 15, 30, 23, cnv.width/2+15, -23));
+            break;
+        case 83:
+            meioFim(3);meio(2);grama();construcao(4, 'e');
+            break;
+        case 84:
+            meioFim(2);grama();meio(2);
+            break;
+        case 85:
+            grama();meio(2);helicoptero('p', 190, -10);
+            break;
+        case 86:
+            grama();GLOBAIS.fiMeio=0;meioFim(1);
+            break;
+        case 87:
+            grama();meioFim(0);gas(270);
+            break;
+        case 88:
+            menosRio(1);
+            break;
+        case 89:
+            gramado(1);helicoptero('p', 40, -15);
+            break;//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=47s
+        case 90:
+            gramado(1);navio(40);
+            break;
+        case 91:
+            gramado(1);construcao(0, 'e');
+            break;
+        case 92:
+            gramado(1);gas(250);
+            break;
+        case 93:
+            gramado(1);menosRio(2);
+            break;
+        case 94:
+            gramado(2);menosRio(3);
+            break;
+        case 95:
+            gramado(3);menosRio(4);
+            break;
+        case 96:
+            gramado(4);construcao(0, 'e');
+            break;
+        case 97:
+            estrada(4);ponte();
+            break;
+        case 98:
+            gramado(4);
+            break;
+        case 99:
+            maisRio(4);gramado(3);construcao(0, 'd');
+            break;
+        case 100:
+            gramado(3);navio(170);
+            break;
+        case 101:
+            gramado(3);construcao(0, 'd');
+            break;//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=51s
+        case 102:
+            gramado(3);construcao(0, 'd');
+            break;
+        case 103:
+            gramado(3);helicoptero('d', 170, -20);
+            break;
+        case 104:
+            gramado(3);helicoptero('d', 170, -20);
+            break;
+        case 105:
+            gramado(3);construcao(1, 'e');
+            break;//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=54s
+        case 106:
+            gramado(3);helicoptero('d', 130, -20);
+            break;
+        case 107:
+            gramado(3);gas(180);
+            break;//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=55s
+        case 108:
+            gramado(3);helicoptero('e', 130, -20);
+            break;
+        case 109:
+            gramado(3);helicoptero('d', 170, -20);
+            break;//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=56s
+        case 110:
+            gramado(3);navio(170);
+            break;
+        case 111:
+            gramado(3);navio(130);
+            break;
+        case 112:
+            gramado(3);aviao('e');
+            break;
+        case 113:
+            gramado(3);helicoptero('d', 170, -20);
+            break;//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=59s
+        case 114:
+            gramado(3);navio(170);
+            break;
+        case 115:
+            gramado(3);aviao('e');
+            break;//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=61s
+        case 116:
+            gramado(3);gas(110);
+            break;
+        case 117:
+            gramado(3);helicoptero('e', 110, -20);
+            break;//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=62s
+        case 118:
+            gramado(3);gas(140);
+            break;
+        case 119:
+            gramado(3);gas(170);
+            break;
+        case 120:
+            gramado(3);navio(120);
+            break;//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=64s
+        case 121:
+            gramado(3);gas(160);
+            break;
+        case 122:
+            gramado(3);construcao(0, 'e');
+            break;
+        case 123:
+            gramado(3);navio(100);
+            break;
+        case 124:
+            gramado(3);
+            break;//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=66s
+        //fim..................................................
         default:
             //estrada(2)//;ponte();
             //GLOBAIS.linha = -1;
