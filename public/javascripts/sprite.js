@@ -18,7 +18,7 @@ function Sprite(imgSrc, flag, srcX, srcY, lar, alt, posX, posY){
     //metodos..............................
     this.desenha = function(){
         //if (this.exibir) {
-            ctx.drawImage(this.img, this.srcX, this.srcY, this.lar, this.alt, this.posX, this.posY, this.lar, this.alt);
+            ctx.drawImage(this.img, this.srcX, this.srcY, this.lar, this.alt, this.posX, this.posY, this.lar*this.escala, this.alt*this.escala);
         //}		
     }
     this.exe = function(){
