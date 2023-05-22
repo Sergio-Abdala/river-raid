@@ -5,7 +5,7 @@ var sprites = new Array();
 var pause = false;
 var gameOver = false;
 var GLOBAIS = {
-    linha: 120,
+    linha: 0,
     tiro: 0,
     atingiu: Array(),
     hodometro: -150,
@@ -273,7 +273,8 @@ function loop(){
         //pause = true;
         fase01();
     }
-    ctx.font = "10px Arial";
+    ctx.font = "9px Arial";
+    ctx.fillText("acurrace: "+ ((GLOBAIS.atingiu.length/GLOBAIS.tiro).toFixed(2))*100 +'%', 10, 130);
     ctx.fillText("linha: "+ GLOBAIS.linha, 10, 140);
 	requestAnimationFrame(loop, "canvas");
 }
@@ -556,7 +557,7 @@ function fase01(){
             helicoptero('p', 50, 10);gas(50);
             break;
         case 81:
-            meioIn(4);meio(3);meio(2);grama();construcao(4, 'd');
+            meioIn(4);meio(3);meio(2);grama();construcao(4, 'd');GLOBAIS.fiMeio=0;
             break;
         case 82:
             meioFim(4);grama();meio(2);
@@ -690,10 +691,13 @@ function fase01(){
             gramado(3);
             break;//https://www.youtube.com/watch?v=pmPjsBDN9Xw&t=66s
         //fim..................................................
+        case 125:
+            gramado(3);menosRio(4);
+            break;
         default:
-            //estrada(2)//;ponte();
-            //GLOBAIS.linha = -1;
-            pause = true;
+            estrada(4);ponte();
+            GLOBAIS.linha = -1;
+            //pause = true;
             break;
     }
     GLOBAIS.linha++;
